@@ -1,108 +1,121 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var passwordText = document.querySelector("#password");
+
+// Add event listener to generate button
+// generateBtn.addEventListener("click", writePassword );
+
+generateBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  writePassword();
+});
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
+// define arrays for password options
+var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-console.log("App connecting");
+var specials = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{",
+  "]", "}", "\\", "|", ";", ":", "\"", ",", "<", ".", ">", "/","?"];
 
+var lcLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l","m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-generateBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  alert("you clicked");
-
-})
-var nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-var special = ['~', '`', '!', '@', '#',
-  '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', '{',
-  ']', '}', '\\', '|', ';', ':', '\'', '"', ',', '<', '.', '>', '/',
-  '?'];
-
-var lcLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
- "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-var ucLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
- "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var ucLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L","M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 var passwordOptions = [];
 
-console.log(passwordOptions);
-
-var passLength = prompt("Enter the password Length between 8-129");
-passLength = parseInt(passLength);
-
-var passLengthCoverter = parseInt(passLength)
-console.log(typeof passLengthCoverter)
+console.log("start with empty list " + passwordOptions);
 
 
-if (typeof passLengthCoverter === "number") {
-  if (passLength < 6) {
-    alert("Please choose between 6 and 128")
+//generate Password Function 
+function generatePassword() {
+  alert("You clicked Generate Password");
+
+
+  var chosenPasswordlength= passwordlength();
+  console.log("chosenPasswordlength: " +chosenPasswordlength );
+
+  var chosenPasswordOptionsArray =  choosePasswordOptions();
+  console.log("The available password options are:");
+ console.log( chosenPasswordOptionsArray );
+
+  var userPassword = "";
+
+    for (let i = 0; i < chosenPasswordlength; i++) {
+
+      var randomNumber = Math.floor(Math.random() * chosenPasswordOptionsArray.length);
+
+      console.log("pickRandomNumber" + randomNumber);
+
+      userPassword += chosenPasswordOptionsArray[randomNumber];
+      console.log("userPassword: " +userPassword);
+
+    }
+
+  alert(userPassword);
+  return userPassword;
+
+}
+
+//set password Length 
+function passwordlength() {
+
+  var passLength = prompt("Enter the password Length between 8-129");
+  passLengthInt= parseInt(passLength);
+
+  console.log(typeof passLengthInt)
+
+
+  if (typeof passLengthInt === "number") {
+    if (passLengthInt < 7 && passLengthInt < 128) {
+      alert("Please choose a number between 8 and 128")
+      close();
+
+    }
+    else {
+
+      alert("You will get a " + passLengthInt + " character length Password");
+      return passLengthInt;
+
+    }
   }
   else {
-    var addNums = confirm("Would you like numbers")
+    alert("Please input a number")
+  }
+  
+}
 
-    if (addNums) {
-      passwordOptions.concat(nums)
-      console.log(passwordOptions);
-    }
+//ask user and pick Password options 
 
+function choosePasswordOptions() {
 
-    var addSpecial = confirm("Would you like specials")
+  addPasswordOptions(numbers);
+  addPasswordOptions(specials);
+  addPasswordOptions(lcLetters);
+  addPasswordOptions(ucLetters);
+  console.log("choosePasswordOptions:  "+ passwordOptions );
 
-    if (addSpecial) {
-      passwordOptions.concat(special)
-      console.log(passwordOptions);
-    }
+  return passwordOptions;
 
-    var addLowerCase = confirm("Would you like lower case letters")
+}
 
-    if (addLowerCase) {
-      passwordOptions.concat(alpha)
-      console.log(passwordOptions);
-    }
+//add selected password option 
+function addPasswordOptions(characters) {
 
+  var addCharacters = confirm("Would you like "+ characters +" in your password?")
 
-    var addUpperCase = confirm("Would you like upper case letters")
-
-    if (addUpperCase) {
-      passwordOptions.concat(uc)
-      console.log(passwordOptions);
-    }
-
-
-    var userCreatePassworf = "";
-
-
-
-    for (let i = 0; i < passLength; i++) {
-
-      var randomPassword = Math.floor(Math.rendom * passwordOptions.length);
-
-      console.log(randomPassword);
-
-      var passwordChar = passwordOptions[randomPassword];
-      console.log(passwordChar);
-
-    }
-
+  if (addCharacters) {
+    passwordOptions = passwordOptions.concat(characters)
+    console.log(characters+" added into passwordOptions  ");
+    console.log("passwordOptions:  "+ passwordOptions );
 
   }
 
-
-
-} else {
-  alert("jacj")
 }
 
