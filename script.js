@@ -63,28 +63,44 @@ function generatePassword() {
 
 //set password Length 
 function passwordlength() {
-  var passLength = 0;
-  passLength = prompt("Enter the password Length between 8-128 inclusive");
-  passLengthInt = parseInt(passLength);
-
+  var passLength = "";
+  isInputNotNumber = false;
  
-  var inputType = typeof passLengthInt;
-  console.log(inputType);
+//promt the questions till get a number between 8 to 28
+  do {
+    passLength = prompt("Enter the password Length between 8-128 inclusive");
 
-  if (inputType == "number") {
-    if (passLengthInt > 7 && passLengthInt < 129) {
+    var inputType = typeof passLength;
+    console.log("input: " + passLength + "inputType: " + inputType);
+  
 
-      alert("You will get a " + passLengthInt + " character length Password");
-      return passLengthInt;
+    if (!isNaN(passLength)) {
+
+      passLengthInt = parseInt(passLength);
+
+      if (passLengthInt > 7 && passLengthInt < 129) {
+  
+        alert("You will get a " + passLengthInt + " character length Password");
+        isInputNotNumber = false;
+        return passLengthInt;
+      }
+      else {
+        alert("Please choose a number between 8 and 128")
+        isInputNotNumber = true;
+  
+      }
     }
-    else {
-      alert("Please choose a number between 8 and 128")
-
+    else  {
+      alert("Please input a number, try again!");
+      isInputNotNumber = true;
     }
+
   }
-  else {
-    alert("Please input a number")
-  }
+  while (isInputNotNumber);
+ 
+ 
+
+
 }
 
 //ask user and pick Password options 
