@@ -27,7 +27,7 @@ header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
-  color: black
+  color: black;
 }
 
 .card {
@@ -46,7 +46,7 @@ header {
   content: " ";
   display: block;
   width: 100%;
-   background: #4aa2fa;
+  background: #4aa2fa;
   height: 2px;
 }
 

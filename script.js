@@ -14,24 +14,18 @@ generateBtn.addEventListener("click", function (event) {
 function writePassword() {
   var password = generatePassword();
   passwordText.value = password;
-
+  disableButton("generate");
 }
 
 
 // define arrays for password options
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-var specials = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{",
-  "]", "}", "\\", "|", ";", ":", "\"", ",", "<", ".", ">", "/", "?"];
-
+var specials = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{","]", "}", "\\", "|", ";", ":", "\"", ",", "<", ".", ">", "/", "?"];
 var lcLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
 var ucLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
 var passwordOptions = [];
 
 console.log("start with empty list " + passwordOptions);
-
 
 //generate Password Function 
 function generatePassword() {
@@ -98,9 +92,6 @@ function passwordlength() {
   }
   while (isInputNotNumber);
  
- 
-
-
 }
 
 //ask user and pick Password options 
@@ -128,5 +119,15 @@ function addPasswordOptions(characters) {
     console.log(characters + " added into passwordOptions  ");
     console.log("passwordOptions:  " + passwordOptions);
   }
+}
+
+//disable generate Password 
+function disable() {
+  generateBtn.disabled = 'true';
+}
+
+//disable generate Password 
+  function disableButton(btnId) {
+    document.getElementById(btnId).disabled = 'true';
 }
 
