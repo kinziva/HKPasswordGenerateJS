@@ -9,27 +9,33 @@
   <!-- Reset CSS -->
   <link rel="stylesheet" href="./Assets/css/reset.css">
   <!-- Style CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./Assets/css/style.css" />
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 
 <body>
-  <div class="wrapper">
+  <div class="container wrapper">
     <header>
       <h1>Password Generator</h1>
     </header>
-    <div class="card">
+
+    <div class="jumbotron-fluid card text-center bg-primary ">
+      
       <div class="card-header">
         <h2>Generate a Password</h2>
       </div>
-      <div class="card-body">
+
+      <div class="card-body text-primary">
         <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
       </div>
+      
       <div class="card-footer">
         <button id="generate" class="btn btn-dark">Generate Password</button>
       </div>
+
     </div>
+    
   </div>
   <script src="script.js"></script>
 </body>

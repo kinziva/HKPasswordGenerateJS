@@ -63,13 +63,15 @@ function generatePassword() {
 
 //set password Length 
 function passwordlength() {
-
-  var passLength = prompt("Enter the password Length between 8-128 inclusive");
+  var passLength = 0;
+  passLength = prompt("Enter the password Length between 8-128 inclusive");
   passLengthInt = parseInt(passLength);
 
-  console.log(typeof passLengthInt)
+ 
+  var inputType = typeof passLengthInt;
+  console.log(inputType);
 
-  if (typeof passLengthInt === "number") {
+  if (inputType == "number") {
     if (passLengthInt > 7 && passLengthInt < 129) {
 
       alert("You will get a " + passLengthInt + " character length Password");
