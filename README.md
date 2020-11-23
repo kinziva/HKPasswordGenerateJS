@@ -19,7 +19,7 @@ Github Repository :  https://github.com/kinziva/HKPasswordGenerateJS
 URL of the deployed application : https://kinziva.github.io/HKPasswordGenerateJS/
 
 
-![password generator demo](./Assets/03-javascript-homework-demo.png)
+![Password Generator Screenshot](./Assets/PaaswordGenerator.JPG)
 
 
 
