@@ -1,31 +1,18 @@
 # 03 JavaScript: Password Generator
 
-## Your Task
 
- It will have a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
-
-
-## Acceptance Criteria
-
-```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
+WHEN I click the button to generate a password, application starts to work
+Then User asked for the length of the password, if user enters a non numaric character, User will promted to enter the number until the user enters a numeric value.
+Then password lenght will be checked , if the given length number is not between 8 -128 user will be promted to enter the right number until the user enters a numeric value between 8 -128 .
 WHEN prompted for character types to include in the password
-THEN I choose lowercase, uppercase, numeric, and/or special characters
+THEN I choose lowercase, uppercase, numeric, and special characters
 WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
+THEN my answers will be checked and at least one character type should be selected if not, User will be prompted to select the password options, till the user select at least one option.
 WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
+THEN a password is generated that matches the selected criteria 
 WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-```
+THEN the password is written to the page
 
-## Mock-Up
 
 Github Repository :  https://github.com/kinziva/HKPasswordGenerateJS
 
@@ -35,27 +22,6 @@ URL of the deployed application : https://kinziva.github.io/HKPasswordGenerateJS
 ![password generator demo](./Assets/03-javascript-homework-demo.png)
 
 
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the above acceptance criteria plus the following:
-
-  * The homework should not produce any errors in the console when you inspect it using Chrome DevTools.
-
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the homework instructions.
-
-### Repository Quality: 13%
-
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality README file with description, screenshot, and link to deployed application.
 
 
 

@@ -20,7 +20,7 @@ function writePassword() {
 
 // define arrays for password options
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var specials = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{","]", "}", "\\", "|", ";", ":", "\"", ",", "<", ".", ">", "/", "?"];
+var specials = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{", "]", "}", "\\", "|", ";", ":", "\"", ",", "<", ".", ">", "/", "?"];
 var lcLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var ucLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var passwordOptions = [];
@@ -29,8 +29,6 @@ console.log("start with empty list " + passwordOptions);
 
 //generate Password Function 
 function generatePassword() {
-  alert("You clicked Generate Password");
-
   var chosenPasswordlength = passwordlength();
 
   console.log("chosenPasswordlength: " + chosenPasswordlength);
@@ -51,7 +49,6 @@ function generatePassword() {
     console.log("userPassword: " + userPassword);
   }
 
-  alert(userPassword);
   return userPassword;
 }
 
@@ -59,39 +56,42 @@ function generatePassword() {
 function passwordlength() {
   var passLength = "";
   isInputNotNumber = false;
- 
-//promt the questions till get a number between 8 to 28
+
+  //promt the questions till get a number between 8 to 28
   do {
     passLength = prompt("Enter the password Length between 8-128 inclusive");
 
     var inputType = typeof passLength;
     console.log("input: " + passLength + "inputType: " + inputType);
-  
 
+    //if the length input is a number
     if (!isNaN(passLength)) {
 
       passLengthInt = parseInt(passLength);
 
+      //if the length input number is between 8 -128 
       if (passLengthInt > 7 && passLengthInt < 129) {
-  
+
         alert("You will get a " + passLengthInt + " character length Password");
         isInputNotNumber = false;
         return passLengthInt;
       }
+      //if the length input number is between 8 -128 
       else {
         alert("Please choose a number between 8 and 128")
         isInputNotNumber = true;
-  
+
       }
+      //if the length input is not a number
     }
-    else  {
+    else {
       alert("Please input a number, try again!");
       isInputNotNumber = true;
     }
 
   }
   while (isInputNotNumber);
- 
+
 }
 
 //ask user and pick Password options 
@@ -121,13 +121,9 @@ function addPasswordOptions(characters) {
   }
 }
 
-//disable generate Password 
-function disable() {
-  generateBtn.disabled = 'true';
-}
 
 //disable generate Password 
-  function disableButton(btnId) {
-    document.getElementById(btnId).disabled = 'true';
+function disableButton(btnId) {
+  document.getElementById(btnId).disabled = 'true';
 }
 
